@@ -73,7 +73,9 @@ const Home = () => {
       </Grid>
       <MovieThumb />
       {loading && <Spinner />}
-      <LoadMoreBtn text="Load more" callback={loadMoreMovie} />
+      {currentPage < totalPages && !loading && (
+        <LoadMoreBtn text="Load more" callback={loadMoreMovie} />
+      )}
     </>
   );
 };
