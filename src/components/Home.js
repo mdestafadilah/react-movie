@@ -45,6 +45,7 @@ const Home = () => {
       <SearchBar />
       <Grid header={searchTerm ? "Search Result" : "Popular Movies"}>
         {movies.map(movie => (
+          // console.log(movie),
           <MovieThumb
             key={movie.id}
             clickable
