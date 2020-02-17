@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Link } from "@reach/router";
 import RMDBLogo from "../images/reactMovie_logo.png";
 import TMDBLogo from "../images/tmdb_logo.svg";
 
@@ -15,8 +15,10 @@ class Header extends Component {
       <StyledHeader>
         <div>
           <div className="header-content">
-            <StyledRMDBLogo src={RMDBLogo} alt="rmdb-logo" />
-            <StyledTMDBLogo src={TMDBLogo} alt="tmdb-logo" />
+            <Link to="/">
+              <StyledRMDBLogo src={RMDBLogo} alt="rmdb-logo" />
+              <StyledTMDBLogo src={TMDBLogo} alt="tmdb-logo" />
+            </Link>
           </div>
         </div>
       </StyledHeader>
