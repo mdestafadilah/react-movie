@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
-  API_URL,
-  API_KEY,
+  POPULAR_BASE_URL,
+  SEARCH_BASE_URL,
   IMAGE_BASE_URL,
   POSTER_SIZE,
   BACKDROP_SIZE
@@ -32,11 +32,14 @@ const Home = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
 
+  // const searchMovies = search => {
+
+  // }
+
   const loadMoreMovie = () => {
-    const searchEndpoint = `${API_URL}search/movie?api_key=${API_KEY}&query=${searchTerm}&page=${currentPage +
+    const searchEndpoint = `${SEARCH_BASE_URL}${searchTerm}&page=${currentPage +
       1}`;
-    const popularEndpoint = `${API_URL}movie/popular?api_key=${API_KEY}&page=${currentPage +
-      1}`;
+    const popularEndpoint = `${POPULAR_BASE_URL}&page=${currentPage + 1}`;
 
     const endpoint = searchTerm ? searchEndpoint : popularEndpoint;
 
