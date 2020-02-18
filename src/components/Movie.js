@@ -10,10 +10,14 @@ import { useMovieFetch } from "./hooks/useMovieFetch";
 
 const Movie = ({ movieId }) => {
   const [movie, loading, error] = useMovieFetch(movieId);
+
+  if (error) return <div>Error data ..</div>;
+  if (loading) return <Spinner />;
+
   return (
     <>
-      <Navigation />
-      <MovieInfo />
+      <Navigation movie={movie.original_title} />
+      <MovieInfo movie={movie} />
       <MovieInfoBar />
       <Grid>
         <Actor />
