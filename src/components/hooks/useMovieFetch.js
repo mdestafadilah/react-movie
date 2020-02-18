@@ -12,10 +12,19 @@ export const useMovieFetch = movieId => {
     try {
       const endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
       const result = await (await fetch(endpoint)).json();
-      console.log(result);
+      //   console.log(result);
       const creditEndpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
       const creditResult = await (await fetch(creditEndpoint)).json();
-      console.log(creditResult);
+      //   console.log(creditResult);
+      const directors = creditResult.crew.filter(
+        member => member.job === "Director"
+      );
+      // populate data
+      setState({
+        ...result,
+        actors: creditResult.cast,
+        directors
+      });
     } catch (error) {
       setError(true);
     }
