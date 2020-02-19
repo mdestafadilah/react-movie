@@ -20,6 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://react-movie-desta.netlify.com/",
   "eslintConfig": {
     "extends": "react-app"
   },
